@@ -2,10 +2,10 @@
 /**
  * Elementor Toggle Translator WordPress Plugin for Maya's Tolkeservice
  *
- * @package ElementorDawinti
+ * @package ElementorMayasTolkeservice
  *
  * Plugin Name: Elementor Maya's Tolkeservice
- * Description: Da Winti Widgets
+ * Description: Maya's Tolkeservice Toggle Translator
  * Version:     1.0.0
  * Author:      Drescher Rijna & Veli Aday
  * Text Domain: elementor-mayas-tolkeservice

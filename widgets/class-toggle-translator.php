@@ -1,13 +1,13 @@
 <?php
 /**
- * Da Winti class.
+ * MayasTolkservice class.
  *
  * @category   Class
- * @package    ElementorDawinti
+ * @package    ElementorMayasTolkeservice
  * @subpackage WordPress
  * @author     Drescher Rijna & Veli Aday
  * @copyright  2021 Drescher Rijna & Veli Aday
- * @since      1.1.0
+ * @since      1.0.0
  * php version 7.3.9
  */
 
@@ -22,9 +22,9 @@ defined( 'ABSPATH' ) || die();
 /**
  * Awesomesauce widget class.
  *
- * @since 1.1.0
+ * @since 1.0.0
  */
-class Toggle_Translator extends Widget_Base {
+class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 
 	/**
 	 * Class constructor.
@@ -42,7 +42,7 @@ class Toggle_Translator extends Widget_Base {
 	/**
 	 * Retrieve the widget name.
 	 *
-	 * @since 1.1.0
+	 * @since 1.0.0
 	 *
 	 * @access public
 	 *
@@ -55,7 +55,7 @@ class Toggle_Translator extends Widget_Base {
 	/**
 	 * Retrieve the widget title.
 	 *
-	 * @since 1.1.0
+	 * @since 1.0.0
 	 *
 	 * @access public
 	 *
@@ -68,7 +68,7 @@ class Toggle_Translator extends Widget_Base {
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since 1.1.0
+	 * @since 1.0.0
 	 *
 	 * @access public
 	 *
@@ -86,7 +86,7 @@ class Toggle_Translator extends Widget_Base {
 	 * Note that currently Elementor supports only one category.
 	 * When multiple categories passed, Elementor uses the first one.
 	 *
-	 * @since 1.1.0
+	 * @since 1.0.0
 	 *
 	 * @access public
 	 *
@@ -169,13 +169,13 @@ class Toggle_Translator extends Widget_Base {
 			[
 				'label' => __( 'Intro title translated', 'Toggle Translator' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => __( 'Titel', 'Toggle Translator' ),
+				'default' => __( 'Title', 'Toggle Translator' ),
 				'placeholder' => __( 'Write translated intro title', 'Toggle Translator' ),
 			]
 		);
 
 		$this->add_control(
-			'intro_text_translated',
+			'Intro_text_translated',
 			[
 				'label' => __( 'Intro text translated', 'Toggle Translator' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
@@ -190,8 +190,11 @@ class Toggle_Translator extends Widget_Base {
 				'label' => __( 'Link', 'Toggle Translator' ),
 				'type' => \Elementor\Controls_Manager::URL,
 				'placeholder' => __( 'https://your-link.com', 'Toggle Translator' ),
+				'show_external' => true,
 				'default' => [
 					'url' => '',
+					'is_external' => true,
+					'nofollow' => true,
 				],
 			]
 		);
@@ -202,8 +205,11 @@ class Toggle_Translator extends Widget_Base {
 				'label' => __( 'Link', 'Toggle Translator' ),
 				'type' => \Elementor\Controls_Manager::URL,
 				'placeholder' => __( 'https://your-link.com', 'Toggle Translator' ),
+				'show_external' => true,
 				'default' => [
 					'url' => '',
+					'is_external' => true,
+					'nofollow' => true,
 				],
 			]
 		);
@@ -224,24 +230,26 @@ class Toggle_Translator extends Widget_Base {
 	 */
 	protected function render() {
 			$settings = $this->get_settings_for_display();
+			$target = $settings['website_link']['is_external'] ? ' target="_blank"' : '';
+			$nofollow = $settings['website_link']['nofollow'] ? ' rel="nofollow"' : '';
 		?>
 			<div id="hero-section-container">
 				<div id="hero-info-container">
-					<h1 id="toggle-titel">
+					
 						<?php 
-							echo '$settings['Intro_title_default']';
+							echo '<h1 id="toggle-titel">' . $settings["Intro_title_default"] . '</h1>';
 						?>
-					</h1>
+					
 
-					<p id="toggle-paragraph">
+					
 						<?php 
-							echo '$settings['Intro_text_default']';
+							echo '<p id="toggle-paragraph">' . $settings["Intro_text_default"] . '</p>';
 						?>
-					</p>
+					
 
 					<div id="hero-buttons">
 						<?php 
-							echo '<a href="' . $settings['Oversættelsesydelser_link']['url'] . '">
+							echo '<a href="' . $settings['Oversættelsesydelser_link']['url'] . '"' . $target . $nofollow . '>
 								<button>
 									Oversættelsesydelser
 								</button>
@@ -249,7 +257,7 @@ class Toggle_Translator extends Widget_Base {
 						?>
 
 						<?php 
-							echo '<a href="' . $settings['Tolkeservice_link']['url'] . '">
+							echo '<a href="' . $settings['Tolkeservice_link']['url'] . '"' . $target . $nofollow . '>
 								<button>
 									Tolkeservice
 								</button>
@@ -260,11 +268,11 @@ class Toggle_Translator extends Widget_Base {
 				</div>
 				<div id="lang-toggle-container">
 					<span id="lang-toggle-handler">
-						<span id="lang-toggle-value" class="pink-text">
+						
 							<?php 
-								echo '{$settings['Toggle_text_default']}';
+								echo '<span id="lang-toggle-value" class="pink-text">' . $settings["Toggle_text_default"] . '</span>';
 							?>
-						</span>
+						
 					</span>
 				</div>
 				
@@ -274,6 +282,14 @@ class Toggle_Translator extends Widget_Base {
 					var toggleContainer = document.getElementById("lang-toggle-container");
 					var translateTitle = document.getElementById("toggle-titel");
 					var translateParagraph = document.getElementById("toggle-paragraph");
+
+					/* Texts */
+					var titleDefault = '<?=$settings["Intro_title_default"]?>';
+					var titleTranslated = '<?=$settings["Intro_title_translated"]?>';
+					var textDefault = '<?=$settings["Intro_text_default"]?>';
+					var textTranslated = '<?=$settings["Intro_text_translated"]?>';
+					var toggleDefault = '<?=$settings["Toggle_text_default"]?>';
+					var toggleTranslated = '<?=$settings["Toggle_text_translated"]?>';
 
 					var toggled = false;
 					var loopAnimation = true;
@@ -285,18 +301,18 @@ class Toggle_Translator extends Widget_Base {
 									toggleHandler.style.left = 53.75 + "%";
 									toggleValue.classList.add("orange-text");
 									toggleValue.classList.remove("pink-text");
-									toggleValue.innerHTML = <?php echo '{$settings['Toggle_text_default']}';?>;
-									translateTitle.innerHTML =<?php echo '{$settings['Intro_title_default']}';?>;
-									translateParagraph.innerHTML =<?php echo '{$settings['Intro_text_default']}';?>;
+									toggleValue.innerHTML = toggleTranslated;
+									translateTitle.innerHTML = titleTranslated;
+									translateParagraph.innerHTML = textTranslated;
 							
 									toggled = true;
 								} else {
 									toggleHandler.style.left = 0 + "px";
 									toggleValue.classList.remove("orange-text");
 									toggleValue.classList.add("pink-text");
-									toggleValue.innerHTML = <?php echo '{$settings['Toggle_text_translated']}';?>;
-									translateTitle.innerHTML =<?php echo '{$settings['Intro_title_translated']}';?>;
-									translateParagraph.innerHTML =<?php echo '{$settings['Intro_text_translated']}';?>;
+									toggleValue.innerHTML = toggleDefault;
+									translateTitle.innerHTML = titleDefault;
+									translateParagraph.innerHTML = textDefault;
 							
 									toggled = false;
 								}
@@ -312,9 +328,9 @@ class Toggle_Translator extends Widget_Base {
 							toggleHandler.style.left = 53.75 + "%";
 							toggleValue.classList.add("orange-text");
 							toggleValue.classList.remove("pink-text");
-							toggleValue.innerHTML = <?php echo '{$settings['Toggle_text_default']}';?>;
-							translateTitle.innerHTML =<?php echo '{$settings['Intro_title_default']}';?>;
-							translateParagraph.innerHTML =<?php echo '{$settings['Intro_text_default']}';?>;
+							toggleValue.innerHTML = toggleTranslated;
+							translateTitle.innerHTML = titleTranslated;
+							translateParagraph.innerHTML = textTranslated;
 
 							toggled = true;
 						} else {
@@ -322,9 +338,9 @@ class Toggle_Translator extends Widget_Base {
 							toggleHandler.style.left = 0 + "px";
 							toggleValue.classList.remove("orange-text");
 							toggleValue.classList.add("pink-text");
-							toggleValue.innerHTML = <?php echo '{$settings['Toggle_text_translated']}';?>;
-							translateTitle.innerHTML =<?php echo '{$settings['Intro_title_translated']}';?>;
-							translateParagraph.innerHTML =<?php echo '{$settings['Intro_text_translated']}';?>;
+							toggleValue.innerHTML = toggleDefault;
+							translateTitle.innerHTML = titleDefault;
+							translateParagraph.innerHTML = textDefault;
 
 							toggled = false;
 						}

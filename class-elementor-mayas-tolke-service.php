@@ -157,7 +157,7 @@ final class Elementor_MayasTolkeservice {
 					),
 				)
 			),
-			'Elementor Awesomesauce',
+			'Elementor MayasTolkeservice',
 			'Elementor',
 			self::MINIMUM_ELEMENTOR_VERSION
 		);
