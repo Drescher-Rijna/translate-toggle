@@ -7,7 +7,7 @@
  * @subpackage WordPress
  * @author     Drescher Rijna & Veli Aday
  * @copyright  2021 Drescher Rijna & Veli Aday
- * @since      1.0.0
+ * @since      1.1.0
  * php version 7.3.9
  */
 
@@ -22,7 +22,7 @@ defined( 'ABSPATH' ) || die();
 /**
  * Awesomesauce widget class.
  *
- * @since 1.0.0
+ * @since 1.1.0
  */
 class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 
@@ -35,14 +35,14 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 	public function __construct( $data = array(), $args = null ) {
 		parent::__construct( $data, $args );
 
-		wp_register_style( 'mayastogglecss', plugins_url( '/assets/css/toggle.css', ELEMENTOR_MAYASTOLKESERVICE ), array(), '1.0.0' );
+		wp_register_style( 'mayastogglecss', plugins_url( '/assets/css/toggle.css', ELEMENTOR_MAYASTOLKESERVICE ), array(), '1.1.0' );
 		
 	}
 
 	/**
 	 * Retrieve the widget name.
 	 *
-	 * @since 1.0.0
+	 * @since 1.1.0
 	 *
 	 * @access public
 	 *
@@ -55,7 +55,7 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 	/**
 	 * Retrieve the widget title.
 	 *
-	 * @since 1.0.0
+	 * @since 1.1.0
 	 *
 	 * @access public
 	 *
@@ -68,7 +68,7 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since 1.0.0
+	 * @since 1.1.0
 	 *
 	 * @access public
 	 *
@@ -86,7 +86,7 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 	 * Note that currently Elementor supports only one category.
 	 * When multiple categories passed, Elementor uses the first one.
 	 *
-	 * @since 1.0.0
+	 * @since 1.1.0
 	 *
 	 * @access public
 	 *
@@ -111,7 +111,7 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
-	 * @since 1.0.0
+	 * @since 1.1.0
 	 *
 	 * @access protected
 	 */
@@ -131,6 +131,16 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => __( 'Hej', 'Toggle Translator' ),
 				'placeholder' => __( 'What should the button say by default', 'Toggle Translator' ),
+			]
+		);
+
+		$this->add_control(
+			'Intro_subTitle_default',
+			[
+				'label' => __( 'Intro sub-title default', 'Toggle Translator' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => __( 'Underoverskrift', 'Toggle Translator' ),
+				'placeholder' => __( 'Write default intro sub-title', 'Toggle Translator' ),
 			]
 		);
 
@@ -161,6 +171,16 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => __( 'Hello', 'Toggle Translator' ),
 				'placeholder' => __( 'What should the button say when translated', 'Toggle Translator' ),
+			]
+		);
+
+		$this->add_control(
+			'Intro_subTitle_translated',
+			[
+				'label' => __( 'Intro sub-title default', 'Toggle Translator' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => __( 'Sub-Title', 'Toggle Translator' ),
+				'placeholder' => __( 'Write translated intro sub-title', 'Toggle Translator' ),
 			]
 		);
 
@@ -235,36 +255,43 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 		?>
 			<div id="hero-section-container">
 				<div id="hero-info-container">
-					
-						<?php 
-							echo '<h1 id="toggle-titel">' . $settings["Intro_title_default"] . '</h1>';
-						?>
-					
 
-					
-						<?php 
-							echo '<p id="toggle-paragraph">' . $settings["Intro_text_default"] . '</p>';
-						?>
-					
+				<div id="intro-titel-tekst">
+					<?php 
+						echo '<h2 id="toggle-subtitle">' . $settings["Intro_subTitle_default"] . '</h2>';
+					?>
 
-					<div id="hero-buttons">
-						<?php 
-							echo '<a href="' . $settings['Oversættelsesydelser_link']['url'] . '"' . $target . $nofollow . '>
-								<button>
-									Oversættelsesydelser
-								</button>
-							</a>';
-						?>
+                    <?php 
+						echo '<h1 id="toggle-titel">' . $settings["Intro_title_default"] . '</h1>';
+					?>
 
-						<?php 
-							echo '<a href="' . $settings['Tolkeservice_link']['url'] . '"' . $target . $nofollow . '>
-								<button>
-									Tolkeservice
-								</button>
-							</a>';
-						?>
+                    <blockquote id="underline-dots">
+                        ...
+                    </blockquote>
+
+                    <?php 
+						echo '<p id="toggle-paragraph">' . $settings["Intro_text_default"] . '</p>';
+					?>
+                </div>
+
+				<div id="hero-buttons">
+					<?php 
+						echo '<a href="' . $settings['Oversættelsesydelser_link']['url'] . '"' . $target . $nofollow . '>
+							<button>
+								BESTIL TOLK
+							</button>
+						</a>';
+					?>
+
+					<?php 
+						echo '<a href="' . $settings['Tolkeservice_link']['url'] . '"' . $target . $nofollow . '>
+							<button id="tolkeservice-btn">
+								LOG IND
+							</button>
+						</a>';
+					?>
 						
-					</div>
+				</div>
 				</div>
 				<div id="lang-toggle-container">
 					<span id="lang-toggle-handler">
@@ -280,10 +307,13 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 					var toggleValue = document.getElementById("lang-toggle-value");
 					var toggleHandler = document.getElementById("lang-toggle-handler");
 					var toggleContainer = document.getElementById("lang-toggle-container");
+					var translateSubTitle = document.getElementById("toggle-subtitle");
 					var translateTitle = document.getElementById("toggle-titel");
 					var translateParagraph = document.getElementById("toggle-paragraph");
 
 					/* Texts */
+					var subTitleDefault = '<?=$settings["Intro_subTitle_default"]?>';
+					var subTitleTranslated = '<?=$settings["Intro_subTitle_translated"]?>';
 					var titleDefault = '<?=$settings["Intro_title_default"]?>';
 					var titleTranslated = '<?=$settings["Intro_title_translated"]?>';
 					var textDefault = '<?=$settings["Intro_text_default"]?>';
@@ -299,18 +329,16 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 							if (loopAnimation == true) {
 								if(toggled == false) {
 									toggleHandler.style.left = 53.75 + "%";
-									toggleValue.classList.add("orange-text");
-									toggleValue.classList.remove("pink-text");
 									toggleValue.innerHTML = toggleTranslated;
+									translateSubTitle.innerHTML = subTitleTranslated;
 									translateTitle.innerHTML = titleTranslated;
 									translateParagraph.innerHTML = textTranslated;
 							
 									toggled = true;
 								} else {
 									toggleHandler.style.left = 0 + "px";
-									toggleValue.classList.remove("orange-text");
-									toggleValue.classList.add("pink-text");
 									toggleValue.innerHTML = toggleDefault;
+									translateSubTitle.innerHTML = subTitleDefault;
 									translateTitle.innerHTML = titleDefault;
 									translateParagraph.innerHTML = textDefault;
 							
@@ -326,9 +354,8 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 						if(toggled == false) {
 							loopAnimation = false;
 							toggleHandler.style.left = 53.75 + "%";
-							toggleValue.classList.add("orange-text");
-							toggleValue.classList.remove("pink-text");
 							toggleValue.innerHTML = toggleTranslated;
+							translateSubTitle.innerHTML = subTitleTranslated;
 							translateTitle.innerHTML = titleTranslated;
 							translateParagraph.innerHTML = textTranslated;
 
@@ -336,9 +363,8 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 						} else {
 							loopAnimation = false;
 							toggleHandler.style.left = 0 + "px";
-							toggleValue.classList.remove("orange-text");
-							toggleValue.classList.add("pink-text");
 							toggleValue.innerHTML = toggleDefault;
+							translateSubTitle.innerHTML = subTitleDefault;
 							translateTitle.innerHTML = titleDefault;
 							translateParagraph.innerHTML = textDefault;
 
@@ -360,7 +386,7 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
-	 * @since 1.0.0
+	 * @since 1.1.0
 	 *
 	 * @access protected
 	 */

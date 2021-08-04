@@ -7,7 +7,7 @@
  * @subpackage WordPress
  * @author     Drescher Rijna & Veli Aday
  * @copyright  2021 Drescher Rijna & Veli Aday
- * @since      1.0.0
+ * @since      1.1.0
  * php version 7.3.9
  */
 
@@ -26,15 +26,15 @@ final class Elementor_MayasTolkeservice {
 	/**
 	 * Plugin Version
 	 *
-	 * @since 1.0.0
+	 * @since 1.1.0
 	 * @var string The plugin version.
 	 */
-	const VERSION = '1.0.0';
+	const VERSION = '1.1.0';
 
 	/**
 	 * Minimum Elementor Version
 	 *
-	 * @since 1.0.0
+	 * @since 1.1.0
 	 * @var string Minimum Elementor version påkrævet til at køre pluginet.
 	 */
 	const MINIMUM_ELEMENTOR_VERSION = '2.0.0';
@@ -42,7 +42,7 @@ final class Elementor_MayasTolkeservice {
 	/**
 	 * Minimum PHP Version
 	 *
-	 * @since 1.0.0
+	 * @since 1.1.0
 	 * @var string Minimum PHP version påkrævet til at køre pluginet.
 	 */
 	const MINIMUM_PHP_VERSION = '7.0';
@@ -50,7 +50,7 @@ final class Elementor_MayasTolkeservice {
 	/**
 	 * Constructor
 	 *
-	 * @since 1.0.0
+	 * @since 1.1.0
 	 * @access public
 	 */
 	public function __construct() {
@@ -67,7 +67,7 @@ final class Elementor_MayasTolkeservice {
 	 * Load plugin filplacering.
 	 * Kørt af `init` action hook.
 	 *
-	 * @since 1.0.0
+	 * @since 1.1.0
 	 * @access public
 	 */
 	public function i18n() {
@@ -81,7 +81,7 @@ final class Elementor_MayasTolkeservice {
 	 *
 	 * Fired by `plugins_loaded` action hook.
 	 *
-	 * @since 1.0.0
+	 * @since 1.1.0
 	 * @access public
 	 */
 	public function init() {
@@ -113,7 +113,7 @@ final class Elementor_MayasTolkeservice {
 	 *
 	 * Advarelse når Elementor ikke er installeret eller aktiveret.
 	 *
-	 * @since 1.0.0
+	 * @since 1.1.0
 	 * @access public
 	 */
 	public function admin_notice_missing_main_plugin() {
@@ -140,7 +140,7 @@ final class Elementor_MayasTolkeservice {
 	 *
 	 * Advarelse når man ikke har den rigitge version af Elementor.
 	 *
-	 * @since 1.0.0
+	 * @since 1.1.0
 	 * @access public
 	 */
 	public function admin_notice_minimum_elementor_version() {
@@ -168,7 +168,7 @@ final class Elementor_MayasTolkeservice {
 	 *
 	 * Advarsel når man ikke har den minimum påkrævet version af PHP.
 	 *
-	 * @since 1.0.0
+	 * @since 1.1.0
 	 * @access public
 	 */
 	public function admin_notice_minimum_php_version() {
