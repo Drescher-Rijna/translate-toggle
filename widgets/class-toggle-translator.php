@@ -7,7 +7,7 @@
  * @subpackage WordPress
  * @author     Drescher Rijna & Veli Aday
  * @copyright  2021 Drescher Rijna & Veli Aday
- * @since      1.1.0
+ * @since      1.4.0
  * php version 7.3.9
  */
 
@@ -22,7 +22,7 @@ defined( 'ABSPATH' ) || die();
 /**
  * Awesomesauce widget class.
  *
- * @since 1.1.0
+ * @since 1.4.0
  */
 class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 
@@ -35,14 +35,14 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 	public function __construct( $data = array(), $args = null ) {
 		parent::__construct( $data, $args );
 
-		wp_register_style( 'mayastogglecss', plugins_url( '/assets/css/toggle.css', ELEMENTOR_MAYASTOLKESERVICE ), array(), '1.1.0' );
+		wp_register_style( 'mayastogglecss', plugins_url( '/assets/css/toggle.css', ELEMENTOR_MAYASTOLKESERVICE ), array(), '1.4.0' );
 		
 	}
 
 	/**
 	 * Retrieve the widget name.
 	 *
-	 * @since 1.1.0
+	 * @since 1.4.0
 	 *
 	 * @access public
 	 *
@@ -55,7 +55,7 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 	/**
 	 * Retrieve the widget title.
 	 *
-	 * @since 1.1.0
+	 * @since 1.4.0
 	 *
 	 * @access public
 	 *
@@ -68,7 +68,7 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since 1.1.0
+	 * @since 1.4.0
 	 *
 	 * @access public
 	 *
@@ -86,7 +86,7 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 	 * Note that currently Elementor supports only one category.
 	 * When multiple categories passed, Elementor uses the first one.
 	 *
-	 * @since 1.1.0
+	 * @since 1.4.0
 	 *
 	 * @access public
 	 *
@@ -111,7 +111,7 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
-	 * @since 1.1.0
+	 * @since 1.4.0
 	 *
 	 * @access protected
 	 */
@@ -244,7 +244,7 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since 1.1.0
+	 * @since 1.4.0
 	 *
 	 * @access protected
 	 */
@@ -256,42 +256,42 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 			<div id="hero-section-container">
 				<div id="hero-info-container">
 
-				<div id="intro-titel-tekst">
-					<?php 
-						echo '<h2 id="toggle-subtitle">' . $settings["Intro_subTitle_default"] . '</h2>';
-					?>
+					<div id="intro-titel-tekst">
+						<?php 
+							echo '<h2 id="toggle-subtitle">' . $settings["Intro_subTitle_default"] . '</h2>';
+						?>
 
-                    <?php 
-						echo '<h1 id="toggle-titel">' . $settings["Intro_title_default"] . '</h1>';
-					?>
+						<?php 
+							echo '<h1 id="toggle-titel">' . $settings["Intro_title_default"] . '</h1>';
+						?>
 
-                    <blockquote id="underline-dots">
-                        ...
-                    </blockquote>
+						<p id="underline-dots">
+							...
+						</p>
 
-                    <?php 
-						echo '<p id="toggle-paragraph">' . $settings["Intro_text_default"] . '</p>';
-					?>
-                </div>
+						<?php 
+							echo '<p id="toggle-paragraph">' . $settings["Intro_text_default"] . '</p>';
+						?>
+					</div>
 
-				<div id="hero-buttons">
-					<?php 
-						echo '<a href="' . $settings['Oversættelsesydelser_link']['url'] . '"' . $target . $nofollow . '>
-							<button>
-								BESTIL TOLK
-							</button>
-						</a>';
-					?>
+					<div id="hero-buttons">
+						<?php 
+							echo '<a href="' . $settings['Oversættelsesydelser_link']['url'] . '"' . $target . $nofollow . '>
+								<button id="bestil-btn">
+									BESTIL TOLK
+								</button>
+							</a>';
+						?>
 
-					<?php 
-						echo '<a href="' . $settings['Tolkeservice_link']['url'] . '"' . $target . $nofollow . '>
-							<button id="tolkeservice-btn">
-								LOG IND
-							</button>
-						</a>';
-					?>
-						
-				</div>
+						<?php 
+							echo '<a href="' . $settings['Tolkeservice_link']['url'] . '"' . $target . $nofollow . '>
+								<button id="logind-btn">
+									LOG IND
+								</button>
+							</a>';
+						?>	
+					</div>
+
 				</div>
 				<div id="lang-toggle-container">
 					<span id="lang-toggle-handler">
@@ -386,7 +386,7 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
-	 * @since 1.1.0
+	 * @since 1.4.0
 	 *
 	 * @access protected
 	 */

@@ -6,7 +6,7 @@
  *
  * Plugin Name: Elementor Maya's Tolkeservice
  * Description: Maya's Tolkeservice Toggle Translator
- * Version:     1.1.0
+ * Version:     1.4.0
  * Author:      Drescher Rijna & Veli Aday
  * Text Domain: elementor-mayas-tolkeservice
  */

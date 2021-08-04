@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&display=swap');
 @import url("https://use.typekit.net/atz8hch.css");
 
-#hero-section-container * {
+* {
 	margin: 0;
 	padding: 0;
 	border: 0;
     box-sizing: border-box;
-    color: #1a1a1a;
     
 }
 
-button {
+#bestil-btn,
+#logind-btn {
     padding: 1rem 0;
     width: 200px;
     max-width: 200px;
@@ -25,7 +25,7 @@ button {
     
 }
 
-button:hover {
+#bestil-btn:hover {
     background-color: #00c0b3;
     border: solid 2px #00c0b3;
 }
@@ -37,25 +37,28 @@ button:hover {
 #toggle-subtitle {
     font-family: 'Cormorant SC', serif;
     font-weight: 300;
-    font-size: 1.75rem;
+    font-size: clamp(26px, 8vw, 36px);
     color: #00948A;
     text-align: center;
+    margin: 0;
 }
 
 #toggle-titel {
     font-family: 'Cormorant SC', serif;
     font-weight: 700;
-    font-size: 3.5rem;
+    font-size: clamp(40px, 12vw, 52px);
     color: #00948A;
     text-align: center;
+    margin: 0;
+    line-height: 1;
 }
 
 #underline-dots {
     font-family: 'Cormorant SC', serif;
     font-weight: 700;
-    font-size: 4rem;
+    font-size: clamp(40px, 12vw, 52px);
     color: #00948A;
-    margin-top: -3rem;
+    margin-top: -4rem;
     text-align: center;
     letter-spacing: 8px;
 }
@@ -65,7 +68,7 @@ button:hover {
     font-weight: 400;
     font-style: normal;
     text-align: center;
-    font-size: 1.15rem;
+    font-size: clamp(18px, 4vw, 20px);
     max-width: 75ch;
 }
 
@@ -147,7 +150,7 @@ button:hover {
     top: 50%;
     left: 50%;
     transform: translate3d(-50%,-50%,0);
-    font-size: 3rem;
+    font-size: clamp(38px, 10vw, 50px);
     color: white;
     
 }
@@ -184,7 +187,7 @@ button:hover {
     column-gap: 30px;
 }
 
-#hero-buttons button:nth-child(2) {
+#logind-btn {
     border: solid 2px white;
     background-color: white;
     color: #00948A;
@@ -192,7 +195,7 @@ button:hover {
     
 }
 
-#hero-buttons button:nth-child(2):hover {
+#logind-btn:hover {
     background-color: #00948A;
     border: solid 2px #00948A;
     color: white;
@@ -327,6 +330,10 @@ button:hover {
 
     #lang-toggle-container {
         width: 100%;
+    }
+
+    #underline-dots {
+        margin-top: -3.5rem;
     }
     
 }
