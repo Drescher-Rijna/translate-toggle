@@ -18,7 +18,7 @@
     border-radius: 50px;
     background-color: #00948A;
     color: white;
-    font-weight: 600;
+    font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     font-size: 1rem;
@@ -58,7 +58,7 @@
     font-weight: 700;
     font-size: clamp(40px, 12vw, 52px);
     color: #00948A;
-    margin-top: -4rem;
+    margin-top: -2.75rem;
     text-align: center;
     letter-spacing: 8px;
 }
@@ -210,7 +210,7 @@
 }
 
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 840px) {
     #hero-section-container {
         max-height: 100vh;
         display: grid;
@@ -307,6 +307,10 @@
         grid-template-areas: 
         "toggle"
         "info";
+    }
+
+    #underline-dots {
+        margin-top: -3.5rem;
     }
     
     #hero-info-container {
