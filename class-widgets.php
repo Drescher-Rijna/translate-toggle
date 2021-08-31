@@ -7,7 +7,7 @@
  * @subpackage WordPress
  * @author     Drescher Rijna & Veli Aday
  * @copyright  2021 Drescher Rijna & Veli Aday
- * @since      1.4.0
+ * @since      1.4.7
  * php version 7.3.9
  */
 
@@ -21,14 +21,14 @@ defined( 'ABSPATH' ) || die();
  *
  * Main Plugin class
  *
- * @since 1.4.0
+ * @since 1.4.7
  */
 class Widgets {
 
 	/**
 	 * Instance
 	 *
-	 * @since 1.4.0
+	 * @since 1.4.7
 	 * @access private
 	 * @static
 	 *
@@ -41,7 +41,7 @@ class Widgets {
 	 *
 	 * Sikre at kun en instance af classen er loaded eller kan blive loaded.
 	 *
-	 * @since 1.4.0
+	 * @since 1.4.7
 	 * @access public
 	 *
 	 * @return Plugin En instance af classen.
@@ -61,7 +61,7 @@ class Widgets {
 	 *
 	 * Load widgets filer
 	 *
-	 * @since 1.4.0
+	 * @since 1.4.7
 	 * @access private
 	 */
 	private function include_widgets_files() {
@@ -74,7 +74,7 @@ class Widgets {
 	 *
 	 * Registere ny Elementor widgets.
 	 *
-	 * @since 1.4.0
+	 * @since 1.4.7
 	 * @access public
 	 */
 	public function register_widgets() {
@@ -88,7 +88,7 @@ class Widgets {
 	 *
 	 * Register plugin action hooks and filters
 	 *
-	 * @since 1.4.0
+	 * @since 1.4.7
 	 * @access public
 	 */
 	public function __construct() {

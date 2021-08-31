@@ -7,7 +7,7 @@
  * @subpackage WordPress
  * @author     Drescher Rijna & Veli Aday
  * @copyright  2021 Drescher Rijna & Veli Aday
- * @since      1.4.0
+ * @since      1.4.7
  * php version 7.3.9
  */
 
@@ -22,7 +22,7 @@ defined( 'ABSPATH' ) || die();
 /**
  * Awesomesauce widget class.
  *
- * @since 1.4.0
+ * @since 1.4.7
  */
 class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 
@@ -35,14 +35,14 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 	public function __construct( $data = array(), $args = null ) {
 		parent::__construct( $data, $args );
 
-		wp_register_style( 'mayastogglecss', plugins_url( '/assets/css/toggle.css', ELEMENTOR_MAYASTOLKESERVICE ), array(), '1.4.0' );
+		wp_register_style( 'mayastogglecss', plugins_url( '/assets/css/toggle.css', ELEMENTOR_MAYASTOLKESERVICE ), array(), '1.4.7' );
 		
 	}
 
 	/**
 	 * Retrieve the widget name.
 	 *
-	 * @since 1.4.0
+	 * @since 1.4.7
 	 *
 	 * @access public
 	 *
@@ -55,7 +55,7 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 	/**
 	 * Retrieve the widget title.
 	 *
-	 * @since 1.4.0
+	 * @since 1.4.7
 	 *
 	 * @access public
 	 *
@@ -68,7 +68,7 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since 1.4.0
+	 * @since 1.4.7
 	 *
 	 * @access public
 	 *
@@ -86,7 +86,7 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 	 * Note that currently Elementor supports only one category.
 	 * When multiple categories passed, Elementor uses the first one.
 	 *
-	 * @since 1.4.0
+	 * @since 1.4.7
 	 *
 	 * @access public
 	 *
@@ -111,7 +111,7 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
-	 * @since 1.4.0
+	 * @since 1.4.7
 	 *
 	 * @access protected
 	 */
@@ -244,7 +244,7 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since 1.4.0
+	 * @since 1.4.7
 	 *
 	 * @access protected
 	 */
@@ -278,7 +278,7 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 						<?php 
 							echo '<a href="' . $settings['Oversættelsesydelser_link']['url'] . '"' . $target . $nofollow . '>
 								<button id="bestil-btn">
-									BESTIL TOLK
+									FÅ TILBUD
 								</button>
 							</a>';
 						?>
@@ -312,14 +312,14 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 					var translateParagraph = document.getElementById("toggle-paragraph");
 
 					/* Texts */
-					var subTitleDefault = '<?=$settings["Intro_subTitle_default"]?>';
-					var subTitleTranslated = '<?=$settings["Intro_subTitle_translated"]?>';
-					var titleDefault = '<?=$settings["Intro_title_default"]?>';
-					var titleTranslated = '<?=$settings["Intro_title_translated"]?>';
-					var textDefault = '<?=$settings["Intro_text_default"]?>';
-					var textTranslated = '<?=$settings["Intro_text_translated"]?>';
-					var toggleDefault = '<?=$settings["Toggle_text_default"]?>';
-					var toggleTranslated = '<?=$settings["Toggle_text_translated"]?>';
+					var subTitleDefault = '<?=addslashes($settings["Intro_subTitle_default"])?>';
+					var subTitleTranslated = '<?=addslashes($settings["Intro_subTitle_translated"])?>';
+					var titleDefault = '<?=addslashes($settings["Intro_title_default"])?>';
+					var titleTranslated = '<?=addslashes($settings["Intro_title_translated"])?>';
+					var textDefault = '<?=addslashes($settings["Intro_text_default"])?>';
+					var textTranslated = '<?=addslashes($settings["Intro_text_translated"])?>';
+					var toggleDefault = '<?=addslashes($settings["Toggle_text_default"])?>';
+					var toggleTranslated = '<?=addslashes($settings["Toggle_text_translated"])?>';
 
 					var toggled = false;
 					var loopAnimation = true;
@@ -386,7 +386,7 @@ class MayasTolkeservice_Toggle_Translator extends Widget_Base {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
-	 * @since 1.4.0
+	 * @since 1.4.7
 	 *
 	 * @access protected
 	 */
